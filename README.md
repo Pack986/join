@@ -1,99 +1,99 @@
-# Pack 986 Landing Page
+# Pack 986 — Join Page
 
-Recruitment landing page for Cub Scout Pack 986. Single-file HTML, mobile-first, no build step required.
+Recruitment landing page for Cub Scout Pack 986. Single-file HTML/CSS/JS — no build step, no dependencies.
 
-## What's here
+**Live site:** https://pack986.github.io/join/
 
-- `pack986-landing.html` — the full landing page (HTML + CSS + a tiny bit of JS, all in one file)
+---
 
-That's it. No dependencies to install, no framework to build. Open it in a browser and it just works.
+## How it's deployed
 
-## Deploying
+This repo lives under the **Pack986 GitHub Organization** and is served via **GitHub Pages**.
 
-### Option 1: Netlify (easiest)
+- Source: `main` branch, `/ (root)` folder
+- Any `git push` to `main` automatically updates the live site within ~60 seconds
+- No manual deploy step needed
 
-1. Go to [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Rename `pack986-landing.html` to `index.html`
-3. Drag the file onto the page
-4. You'll get a live URL immediately (something like `https://random-name-12345.netlify.app`)
-5. In Netlify's site settings, you can rename the subdomain to something friendlier like `pack986.netlify.app`
+To verify or change the Pages configuration: **GitHub → Pack986/join → Settings → Pages**
 
-**To update later:** drag the new file to the same site's "Deploys" tab, or connect this GitHub repo to Netlify for automatic deploys on every commit.
+---
 
-### Option 2: GitHub Pages
+## Managing the site
 
-1. Make sure this repo is public
-2. Rename `pack986-landing.html` to `index.html`
-3. Go to **Settings → Pages**
-4. Under "Source," select `Deploy from a branch`, choose `main` branch and `/ (root)` folder
-5. Save. Your site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute
+### Making a change
 
-## Customizing before publishing
+1. Edit `index.html` directly (everything — HTML, CSS, JS — is in one file)
+2. Commit and push to `main`:
+   ```
+   git add index.html
+   git commit -m "your change description"
+   git push
+   ```
+3. GitHub Pages will rebuild automatically. Check the live URL in ~1 minute.
 
-A few things to swap out before going live:
+### Things you'll want to update before launch
 
-### 1. Replace photo placeholders with real photos
+| What | Where in `index.html` | Notes |
+|---|---|---|
+| Contact email | Search `pack986@example.com` | One occurrence, in the Join section |
+| Committee chair names | Search `James` and `Shashi` | Footer + Join section copy |
+| Hero stats | `<div class="hero-stats">` block | "12+ Events / Year", etc. |
+| Photo tiles | `<div class="gallery">` section | See instructions below |
 
-In the gallery section, find the `<div class="photo-tile ...">` blocks. Each one looks like this:
+### Swapping in real photos
+
+The gallery currently shows placeholder tiles with gradient backgrounds. To replace with real photos:
+
+Find each `<div class="photo-tile ...">` block in the gallery section and replace it with an `<img>` tag:
 
 ```html
+<!-- Before (placeholder) -->
 <div class="photo-tile ph-1 wide reveal">
   <svg class="ph-icon" ...></svg>
-  <span class="ph-label">Campouts & Hikes</span>
+  <span class="ph-label">Campouts &amp; Hikes</span>
 </div>
+
+<!-- After (real photo) -->
+<img src="images/campout.jpg" alt="Scouts on a campout" class="photo-tile wide reveal">
 ```
 
-Replace each with an actual image:
+Keep the layout class names (`wide`, `tall`, `reveal`) on the `<img>` — they control the grid.
 
-```html
-<img src="images/campout.jpg" alt="Scouts at a campout" class="photo-tile wide reveal">
-```
+Add your photos to an `images/` folder in the repo. Keep files under ~500KB each for fast mobile loading — [squoosh.app](https://squoosh.app) is a free compressor.
 
-Keep the class names (`wide`, `tall`, `reveal`) on the `<img>` tag — they control the grid layout.
-
-Create an `images/` folder in the repo and put your photos there. Keep them under ~500KB each for fast mobile loading (use [squoosh.app](https://squoosh.app) to compress).
-
-### 2. Update the contact email
-
-Search for `pack986@example.com` and replace it with the real address. Appears in one place in the "Join" section.
-
-### 3. Optional tweaks
-
-- **Hero stats** — update "12+ Events / Year" or other numbers in the hero section if you want different ones
-- **Committee chair names** — James & Shashi are mentioned in the Join section and footer; update if leadership changes
-- **Pack number** — appears as "986" in multiple places; easy to find-and-replace if this gets forked for another pack
+---
 
 ## Custom domain (optional)
 
-Both Netlify and GitHub Pages support custom domains. If you want something like `pack986.org` or `joinpack986.com`:
+To use a domain like `pack986.org` or `joinpack986.com` instead of the `github.io` URL:
 
-1. Buy a domain (Namecheap, Porkbun, or Cloudflare — ~$10-15/year)
-2. In your host's settings (Netlify or GitHub Pages), add the custom domain
-3. Update DNS records at your registrar as instructed by the host
+1. Buy a domain (~$10–15/yr via Porkbun, Namecheap, or Cloudflare Registrar)
+2. In **Settings → Pages → Custom domain**, enter your domain
+3. At your registrar, add the DNS records GitHub instructs you to add (usually 4 A records + 1 CNAME)
+4. Check "Enforce HTTPS" once the domain verifies (takes up to 24 hrs for DNS to propagate)
+
+---
 
 ## File structure
 
 ```
 .
-├── README.md                    <- you are here
-├── pack986-landing.html         <- the landing page
-└── images/                      <- (add this) your photos
+├── README.md       ← you are here
+├── index.html      ← the entire site (HTML + CSS + JS, one file)
+└── images/         ← add this folder when you have real photos
     ├── campout.jpg
-    ├── pinewood-derby.jpg
     └── ...
 ```
 
+---
+
 ## Tech notes
 
-- No build step, no npm install, no framework. Just HTML.
-- Uses Google Fonts (Alfa Slab One, Fraunces, Work Sans) loaded via CDN.
-- Mobile-first responsive: tested from 320px width up.
-- Scroll-triggered reveal animations via IntersectionObserver.
-- The SVG badge in the hero animates (rotating ring) via CSS keyframes.
-
-## Maintenance
-
-Edit the HTML file directly. No rebuild needed — just save and redeploy (drag-and-drop to Netlify, or `git push` if using GitHub Pages).
+- No npm, no framework, no build step — just HTML
+- Google Fonts (Alfa Slab One, Fraunces, Work Sans) loaded via CDN
+- Mobile-first responsive, tested from 320px up
+- Scroll-triggered reveal animations via `IntersectionObserver`
+- Hero badge SVG animates via CSS `@keyframes`
 
 ---
 
