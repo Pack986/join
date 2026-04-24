@@ -42,6 +42,7 @@ Current gallery images:
 | `images/snow-day.jpg` | Tall — Snow Day |
 | `images/pinewood-derby.jpg` | Pinewood Derby |
 | `images/parade.jpg` | St. Patrick's Day Parade |
+| `images/uss-hornet.jpg` | USS Hornet Overnight |
 
 ---
 
@@ -68,7 +69,8 @@ To use a domain like `pack986.org` instead of the `github.io` URL:
     ├── service-project.jpg
     ├── snow-day.jpg
     ├── pinewood-derby.jpg
-    └── parade.jpg
+    ├── parade.jpg
+    └── uss-hornet.jpg
 ```
 
 ---

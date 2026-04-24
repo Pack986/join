@@ -467,7 +467,13 @@
     transition: transform 0.3s;
   }
   .photo-tile:hover { transform: scale(1.02); }
-  img.photo-tile { object-fit: cover; width: 100%; height: 100%; }
+  .photo-tile img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .photo-tile.wide { grid-column: span 2; aspect-ratio: 2 / 1; }
   .photo-tile.tall { aspect-ratio: 1 / 1.3; }
   .photo-tile .ph-label {
@@ -1034,12 +1040,34 @@
     <p class="section-lede">From campfires to pinewood derbies to community service, here's a glimpse of the experiences your scout will be a part of.</p>
 
     <div class="gallery">
-      <img src="images/river-rafting.jpg" alt="Pack 986 families river rafting together" class="photo-tile wide reveal">
-      <img src="images/popcorn-sales.jpg" alt="Scouts selling popcorn at a Pack 986 fundraiser" class="photo-tile reveal">
-      <img src="images/service-project.jpg" alt="Pack 986 at the Dublin Creek Cleanup community service event" class="photo-tile reveal">
-      <img src="images/snow-day.jpg" alt="Scouts tubing on the annual Pack 986 Snow Day" class="photo-tile tall reveal">
-      <img src="images/pinewood-derby.jpg" alt="Crowd watching cars race at the Pack 986 Pinewood Derby" class="photo-tile reveal">
-      <img src="images/parade.jpg" alt="Pack 986 marching in the St. Patrick's Day Parade" class="photo-tile reveal">
+      <div class="photo-tile wide reveal">
+        <img src="images/river-rafting.jpg" alt="Pack 986 families river rafting together">
+        <span class="ph-label">River Rafting</span>
+      </div>
+      <div class="photo-tile reveal">
+        <img src="images/popcorn-sales.jpg" alt="Scouts selling popcorn at a Pack 986 fundraiser">
+        <span class="ph-label">Popcorn Sales</span>
+      </div>
+      <div class="photo-tile reveal">
+        <img src="images/service-project.jpg" alt="Pack 986 at the Dublin Creek Cleanup community service event">
+        <span class="ph-label">Community Service</span>
+      </div>
+      <div class="photo-tile tall reveal">
+        <img src="images/snow-day.jpg" alt="Scouts tubing on the annual Pack 986 Snow Day">
+        <span class="ph-label">Snow Day</span>
+      </div>
+      <div class="photo-tile reveal">
+        <img src="images/pinewood-derby.jpg" alt="Crowd watching cars race at the Pack 986 Pinewood Derby">
+        <span class="ph-label">Pinewood Derby</span>
+      </div>
+      <div class="photo-tile reveal">
+        <img src="images/parade.jpg" alt="Pack 986 marching in the St. Patrick's Day Parade">
+        <span class="ph-label">St. Patrick's Day Parade</span>
+      </div>
+      <div class="photo-tile reveal">
+        <img src="images/uss-hornet.jpg" alt="Scouts at the USS Hornet overnight trip by the Apollo capsule">
+        <span class="ph-label">USS Hornet Overnight</span>
+      </div>
     </div>
 
   </div>
