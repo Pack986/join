@@ -761,6 +761,65 @@
   }
 
   /* =========================
+     FAQ
+     ========================= */
+  .faq {
+    background: var(--cream);
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 780px;
+  }
+  .faq-item {
+    border: 2px solid var(--navy);
+    border-radius: var(--radius);
+    background: var(--cream-warm);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item[open] {
+    box-shadow: var(--shadow-hard);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    font-family: var(--font-editorial);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+";
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after {
+    content: "×";
+  }
+  .faq-item[open] summary {
+    color: var(--rust);
+  }
+  .faq-a {
+    padding: 16px 24px 22px;
+    color: #3a3d45;
+    font-size: 0.97rem;
+    line-height: 1.65;
+    border-top: 1px solid rgba(23, 34, 74, 0.12);
+  }
+
+  /* =========================
      CTA / JOIN
      ========================= */
   .join {
@@ -854,6 +913,7 @@
       <a href="#about">Why Us</a>
       <a href="#gallery">Adventures</a>
       <a href="#commitment">Parents</a>
+      <a href="#faq">FAQ</a>
       <a href="#join">Join</a>
     </div>
     <a href="#join" class="nav-cta">Join Now</a>
@@ -1142,6 +1202,79 @@
         <h3>Respect our volunteers</h3>
         <p>Every leader is a volunteer parent giving their time. A little patience and gratitude go a long way.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FAQ ========= -->
+<section id="faq" class="faq">
+  <div class="container">
+    <span class="eyebrow">Got questions?</span>
+    <h2 class="section-title">Frequently <span class="accent">asked questions.</span></h2>
+    <p class="section-lede">Everything you need to know before joining Pack 986.</p>
+
+    <div class="faq-list">
+
+      <details class="faq-item reveal">
+        <summary>If I can't volunteer, can my child still participate?</summary>
+        <div class="faq-a">We understand that everyone's circumstances are different. However, in Pack 986, we place a strong emphasis on parental involvement through volunteering. Unfortunately, without a commitment to volunteer, it may not be possible for your child to fully benefit from what our Pack has to offer. We strongly believe in the value of community contribution and ask all parents to be a part of this effort.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>I have other children, I'm not well-versed in Scouting, or both parents work full time. Do I still need to volunteer?</summary>
+        <div class="faq-a">We recognize that every family's situation is unique, and we appreciate that balancing commitments can be challenging. However, the success of our Pack heavily relies on the active participation of all parents, irrespective of their other commitments or familiarity with Scouting. Many of our parents are also juggling multiple responsibilities, yet they have chosen to make Scouting a priority for their family. Everyone contributes to the best of their ability, and we are always here to support one another. Your volunteering, no matter how small it seems, can make a big difference in our community.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What makes this Pack different from others?</summary>
+        <div class="faq-a">Pack 986 was established out of a desire for a more engaged, community-oriented approach to Scouting. We believe in modeling the character-building values we teach our Scouts. While we are all volunteers, this is more than just a service, it's a commitment to our children's growth and development. This Pack may not be the right fit for everyone, so we ask that you consider the time and commitment required before applying.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What kind of activities do the Scouts participate in?</summary>
+        <div class="faq-a">Our Scouts participate in a wide range of activities that promote character, service, citizenship, and personal fitness. These include hiking, camping, community service projects, fundraising, and other fun and educational activities.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Is it necessary to attend every meeting?</summary>
+        <div class="faq-a">Yes, regular attendance at meetings is an integral part of Scouting. While we understand that scheduling conflicts may arise occasionally, consistent participation is essential for your Scout's progression and for fostering a sense of community within the Pack. In the event of unavoidable absences, it's important that missed lessons are completed independently to ensure your Scout stays on track with their adventure badges and is prepared to move up to the next rank by the end of the year.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can you explain the difference between dens and packs?</summary>
+        <div class="faq-a">Dens are smaller groups within the Pack, organized by grade level. The Pack comprises all these dens.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>How many Scouts are in each den?</summary>
+        <div class="faq-a">Den size can vary, but we aim to keep it to a maximum of 8 kids for a manageable and effective learning environment.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>If a den is full, can my child still participate?</summary>
+        <div class="faq-a">Absolutely! If a particular den is full, we can accommodate by creating additional dens for each grade level. As a parent, you would need to take on the role of a den leader, but rest assured, you'll be supported by other den leaders throughout your journey.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Is participation in the popcorn fundraiser mandatory?</summary>
+        <div class="faq-a">Participation in our annual popcorn fundraiser is a key part of our Pack's activities, as it supports many of the programs we offer throughout the year. We understand that everyone has different circumstances, however, we kindly request all members to contribute to this important initiative. Not only do many Scouts find it fun, but your participation directly impacts the quality and diversity of the experiences we can offer. Please note that if you choose not to participate, the Pack may be unable to subsidize your Scout's participation in certain activities.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Who organizes the meetings and activities?</summary>
+        <div class="faq-a">Our Pack is run entirely by parent volunteers. Every meeting, event, or activity is planned and executed by these dedicated individuals. This commitment is an integral part of what makes Pack 986 a thriving community.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What is the cost to join?</summary>
+        <div class="faq-a">Joining our Pack involves a two-part application process that includes fees for both our local Pack and the National BSA organization. For the 2024–25 year, the Pack fee is $100 and National BSA requires dues of approximately $160. Cost of uniforms, hats, and badges is around $100.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>How do I join?</summary>
+        <div class="faq-a">You can join by applying at our "Joining Day" event, typically held in early Fall. If you're unable to attend this event or are joining mid-year, please come to our monthly parent meeting to submit your application.</div>
+      </details>
+
     </div>
   </div>
 </section>
