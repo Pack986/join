@@ -517,6 +517,122 @@
   }
 
   /* =========================
+     FULL PHOTO GRID
+     ========================= */
+  .full-gallery {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding-top: 0;
+  }
+  .full-gallery .eyebrow { background: rgba(245, 184, 46, 0.15); color: var(--gold); }
+  .full-gallery h2.section-title { color: var(--cream); }
+  .full-gallery .section-lede { color: rgba(250, 246, 237, 0.75); }
+
+  .fg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 600px) { .fg-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px) { .fg-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; } }
+
+  .fg-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: var(--radius);
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    border: none;
+    display: block;
+  }
+  .fg-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .fg-item:hover img { transform: scale(1.06); }
+  .fg-label-hover {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 28px 14px 12px;
+    background: linear-gradient(transparent, rgba(15, 23, 51, 0.88));
+    color: var(--cream);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0;
+    transition: opacity 0.2s;
+    text-align: left;
+  }
+  .fg-item:hover .fg-label-hover { opacity: 1; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 14, 30, 0.96);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.is-open { display: flex; }
+  .lb-img {
+    max-width: min(90vw, 1000px);
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+  }
+  .lb-close {
+    position: absolute;
+    top: 18px; right: 22px;
+    color: var(--cream);
+    font-size: 2.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+  .lb-close:hover { opacity: 1; }
+  .lb-prev, .lb-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cream);
+    font-size: 2.4rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 8px;
+    opacity: 0.7;
+    transition: opacity 0.15s, background 0.15s;
+    line-height: 1;
+  }
+  .lb-prev:hover, .lb-next:hover { opacity: 1; background: rgba(255, 255, 255, 0.2); }
+  .lb-prev { left: 14px; }
+  .lb-next { right: 14px; }
+  .lb-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(250, 246, 237, 0.75);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  /* =========================
      PARENT COMMITMENT
      ========================= */
   .commit {
@@ -1073,6 +1189,99 @@
   </div>
 </section>
 
+<!-- ========= FULL PHOTO GRID ========= -->
+<section id="more-photos" class="full-gallery">
+  <div class="container">
+    <span class="eyebrow">Pack Life</span>
+    <h2 class="section-title">More from <span class="accent" style="color:var(--gold)">Pack 986.</span></h2>
+    <p class="section-lede">A look at life in the Pack, across every season. Click any photo to view full size.</p>
+
+    <div class="fg-grid">
+      <button class="fg-item reveal" data-src="images/gallery-campfire-smores.jpg" data-label="Campfire &amp; S'mores">
+        <img src="images/gallery-campfire-smores.jpg" alt="Scouts roasting marshmallows at a campfire" loading="lazy">
+        <span class="fg-label-hover">Campfire &amp; S'mores</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-fishing.jpg" data-label="Fishing at Camp">
+        <img src="images/gallery-fishing.jpg" alt="Scouts fishing at a lake on a camping trip" loading="lazy">
+        <span class="fg-label-hover">Fishing at Camp</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-hiking-trail.jpg" data-label="Day Hike">
+        <img src="images/gallery-hiking-trail.jpg" alt="Scouts hiking through a forest trail" loading="lazy">
+        <span class="fg-label-hover">Day Hike</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-camping-selfie.jpg" data-label="Family Camping Trip">
+        <img src="images/gallery-camping-selfie.jpg" alt="Pack 986 families at a camping trip with tents" loading="lazy">
+        <span class="fg-label-hover">Family Camping Trip</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-redwood-camp.jpg" data-label="Mom &amp; Cub Camp">
+        <img src="images/gallery-redwood-camp.jpg" alt="Scouts and parents at a redwood forest campsite" loading="lazy">
+        <span class="fg-label-hover">Mom &amp; Cub Camp</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-campfire-night.jpg" data-label="Campfire Night">
+        <img src="images/gallery-campfire-night.jpg" alt="Pack gathered around a campfire at night" loading="lazy">
+        <span class="fg-label-hover">Campfire Night</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-camp-lesson.jpg" data-label="Camp Skills">
+        <img src="images/gallery-camp-lesson.jpg" alt="Scout leader teaching skills at a campout" loading="lazy">
+        <span class="fg-label-hover">Camp Skills</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-hilltop.jpg" data-label="Hilltop Hike">
+        <img src="images/gallery-hilltop.jpg" alt="Scouts at the top of a hill with a view of the valley" loading="lazy">
+        <span class="fg-label-hover">Hilltop Hike</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-hiking-rocks.jpg" data-label="Hiking">
+        <img src="images/gallery-hiking-rocks.jpg" alt="Pack 986 scouts hiking on rocky terrain" loading="lazy">
+        <span class="fg-label-hover">Hiking</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-hiking-hills.jpg" data-label="Hiking">
+        <img src="images/gallery-hiking-hills.jpg" alt="Pack 986 scouts hiking in the hills" loading="lazy">
+        <span class="fg-label-hover">Hiking</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-veterans-parade.jpg" data-label="Veterans Day Parade">
+        <img src="images/gallery-veterans-parade.jpg" alt="Pack 986 marching in the Veterans Day Parade" loading="lazy">
+        <span class="fg-label-hover">Veterans Day Parade</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-derby-cars.jpg" data-label="Pinewood Derby Cars">
+        <img src="images/gallery-derby-cars.jpg" alt="Pinewood Derby cars lined up on a table" loading="lazy">
+        <span class="fg-label-hover">Pinewood Derby Cars</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-fire-station.jpg" data-label="Fire Station Visit">
+        <img src="images/gallery-fire-station.jpg" alt="Scouts visiting the Alameda County fire station" loading="lazy">
+        <span class="fg-label-hover">Fire Station Visit</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-fire-station-heroes.jpg" data-label="Thank You, Heroes!">
+        <img src="images/gallery-fire-station-heroes.jpg" alt="Pack 986 Wolf Den delivering popcorn to firefighters" loading="lazy">
+        <span class="fg-label-hover">Thank You, Heroes!</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-popcorn-sales-2.jpg" data-label="Popcorn Sales">
+        <img src="images/gallery-popcorn-sales-2.jpg" alt="Scouts at a popcorn fundraiser table" loading="lazy">
+        <span class="fg-label-hover">Popcorn Sales</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-popcorn-sheriff.jpg" data-label="Popcorn Sales">
+        <img src="images/gallery-popcorn-sheriff.jpg" alt="Scouts with sheriff deputies during popcorn sales" loading="lazy">
+        <span class="fg-label-hover">Popcorn Sales</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-popcorn-solo.jpg" data-label="Popcorn Sales">
+        <img src="images/gallery-popcorn-solo.jpg" alt="Scout at a Pack 986 popcorn sales table" loading="lazy">
+        <span class="fg-label-hover">Popcorn Sales</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-pack-meeting.jpg" data-label="Pack Meeting">
+        <img src="images/gallery-pack-meeting.jpg" alt="Pack 986 meeting in a school gymnasium" loading="lazy">
+        <span class="fg-label-hover">Pack Meeting</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" aria-hidden="true" aria-modal="true" role="dialog">
+  <button class="lb-close" aria-label="Close photo">×</button>
+  <button class="lb-prev" aria-label="Previous photo">‹</button>
+  <button class="lb-next" aria-label="Next photo">›</button>
+  <img class="lb-img" src="" alt="">
+  <div class="lb-caption"></div>
+</div>
+
 <!-- ========= PARENT COMMITMENT ========= -->
 <section id="commitment" class="commit">
   <div class="container">
@@ -1318,6 +1527,47 @@
     [...container.children].forEach((child, i) => {
       child.style.transitionDelay = `${i * 80}ms`;
     });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = lightbox.querySelector('.lb-img');
+  const lbCaption = lightbox.querySelector('.lb-caption');
+  const fgItems = [...document.querySelectorAll('.fg-item')];
+  let currentIdx = 0;
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    lbImg.src = fgItems[idx].dataset.src;
+    lbCaption.textContent = fgItems[idx].dataset.label;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function navigate(dir) {
+    currentIdx = (currentIdx + dir + fgItems.length) % fgItems.length;
+    lbImg.src = fgItems[currentIdx].dataset.src;
+    lbCaption.textContent = fgItems[currentIdx].dataset.label;
+  }
+
+  fgItems.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+  lightbox.querySelector('.lb-close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lb-prev').addEventListener('click', () => navigate(-1));
+  lightbox.querySelector('.lb-next').addEventListener('click', () => navigate(1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
   });
 </script>
 
