@@ -524,6 +524,47 @@
   .full-gallery h2.section-title { color: var(--cream); }
   .full-gallery .section-lede { color: rgba(250, 246, 237, 0.75); }
 
+  /* Category filter pills */
+  .fg-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .fg-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 2px solid rgba(245, 184, 46, 0.25);
+    color: rgba(250, 246, 237, 0.72);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .fg-filter:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .fg-filter.is-active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+  .fg-count {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-size: 0.7rem;
+  }
+  .fg-filter.is-active .fg-count { background: rgba(23, 34, 74, 0.18); }
+
   .fg-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -542,7 +583,9 @@
     padding: 0;
     border: none;
     display: block;
+    transition: transform 0.25s;
   }
+  .fg-item.is-hidden { display: none; }
   .fg-item img {
     width: 100%; height: 100%;
     object-fit: cover;
@@ -1190,138 +1233,148 @@
   <div class="container">
     <span class="eyebrow">Pack Life</span>
     <h2 class="section-title">More from <span class="accent" style="color:var(--gold)">Pack 986.</span></h2>
-    <p class="section-lede">A look at life in the Pack, across every season. Click any photo to view full size.</p>
+    <p class="section-lede">A look at life in the Pack, across every season. Filter by category or browse them all.</p>
+
+    <!-- Category filter pills -->
+    <div class="fg-filters" role="group" aria-label="Filter photos by category">
+      <button class="fg-filter is-active" data-filter="all">All Photos <span class="fg-count">33</span></button>
+      <button class="fg-filter" data-filter="camping">Camping <span class="fg-count">12</span></button>
+      <button class="fg-filter" data-filter="hiking">Hiking <span class="fg-count">4</span></button>
+      <button class="fg-filter" data-filter="pack-life">Pack Life <span class="fg-count">7</span></button>
+      <button class="fg-filter" data-filter="derby">Pinewood Derby <span class="fg-count">2</span></button>
+      <button class="fg-filter" data-filter="service">Service &amp; Giving Back <span class="fg-count">8</span></button>
+    </div>
 
     <div class="fg-grid">
-      <button class="fg-item reveal" data-src="images/gallery-campfire-smores.jpg" data-label="Campfire &amp; S'mores">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-campfire-smores.jpg" data-label="Campfire &amp; S'mores">
         <img src="images/gallery-campfire-smores.jpg" alt="Scouts roasting marshmallows at a campfire" loading="lazy">
         <span class="fg-label-hover">Campfire &amp; S'mores</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-fishing.jpg" data-label="Fishing at Camp">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-fishing.jpg" data-label="Fishing at Camp">
         <img src="images/gallery-fishing.jpg" alt="Scouts fishing at a lake on a camping trip" loading="lazy">
         <span class="fg-label-hover">Fishing at Camp</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-hiking-trail.jpg" data-label="Day Hike">
+      <button class="fg-item reveal" data-cat="hiking" data-src="images/gallery-hiking-trail.jpg" data-label="Day Hike">
         <img src="images/gallery-hiking-trail.jpg" alt="Scouts hiking through a forest trail" loading="lazy">
         <span class="fg-label-hover">Day Hike</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-camping-selfie.jpg" data-label="Family Camping Trip">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-camping-selfie.jpg" data-label="Family Camping Trip">
         <img src="images/gallery-camping-selfie.jpg" alt="Pack 986 families at a camping trip with tents" loading="lazy">
         <span class="fg-label-hover">Family Camping Trip</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-redwood-camp.jpg" data-label="Mom &amp; Cub Camp">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-redwood-camp.jpg" data-label="Mom &amp; Cub Camp">
         <img src="images/gallery-redwood-camp.jpg" alt="Scouts and parents at a redwood forest campsite" loading="lazy">
         <span class="fg-label-hover">Mom &amp; Cub Camp</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-campfire-night.jpg" data-label="Campfire Night">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-campfire-night.jpg" data-label="Campfire Night">
         <img src="images/gallery-campfire-night.jpg" alt="Pack gathered around a campfire at night" loading="lazy">
         <span class="fg-label-hover">Campfire Night</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-camp-lesson.jpg" data-label="Camp Skills">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-camp-lesson.jpg" data-label="Camp Skills">
         <img src="images/gallery-camp-lesson.jpg" alt="Scout leader teaching skills at a campout" loading="lazy">
         <span class="fg-label-hover">Camp Skills</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-hilltop.jpg" data-label="Hilltop Hike">
+      <button class="fg-item reveal" data-cat="hiking" data-src="images/gallery-hilltop.jpg" data-label="Hilltop Hike">
         <img src="images/gallery-hilltop.jpg" alt="Scouts at the top of a hill with a view of the valley" loading="lazy">
         <span class="fg-label-hover">Hilltop Hike</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-hiking-rocks.jpg" data-label="Hiking">
+      <button class="fg-item reveal" data-cat="hiking" data-src="images/gallery-hiking-rocks.jpg" data-label="Hiking">
         <img src="images/gallery-hiking-rocks.jpg" alt="Pack 986 scouts hiking on rocky terrain" loading="lazy">
         <span class="fg-label-hover">Hiking</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-hiking-hills.jpg" data-label="Hiking">
+      <button class="fg-item reveal" data-cat="hiking" data-src="images/gallery-hiking-hills.jpg" data-label="Hiking">
         <img src="images/gallery-hiking-hills.jpg" alt="Pack 986 scouts hiking in the hills" loading="lazy">
         <span class="fg-label-hover">Hiking</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-veterans-parade.jpg" data-label="Veterans Day Parade">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-veterans-parade.jpg" data-label="Veterans Day Parade">
         <img src="images/gallery-veterans-parade.jpg" alt="Pack 986 marching in the Veterans Day Parade" loading="lazy">
         <span class="fg-label-hover">Veterans Day Parade</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-derby-cars.jpg" data-label="Pinewood Derby Cars">
+      <button class="fg-item reveal" data-cat="derby" data-src="images/gallery-derby-cars.jpg" data-label="Pinewood Derby Cars">
         <img src="images/gallery-derby-cars.jpg" alt="Pinewood Derby cars lined up on a table" loading="lazy">
         <span class="fg-label-hover">Pinewood Derby Cars</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-fire-station.jpg" data-label="Fire Station Visit">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-fire-station.jpg" data-label="Fire Station Visit">
         <img src="images/gallery-fire-station.jpg" alt="Scouts visiting the Alameda County fire station" loading="lazy">
         <span class="fg-label-hover">Fire Station Visit</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-fire-station-heroes.jpg" data-label="Thank You, Heroes!">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-fire-station-heroes.jpg" data-label="Thank You, Heroes!">
         <img src="images/gallery-fire-station-heroes.jpg" alt="Pack 986 Wolf Den delivering popcorn to firefighters" loading="lazy">
         <span class="fg-label-hover">Thank You, Heroes!</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-popcorn-sales-2.jpg" data-label="Popcorn Sales">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-popcorn-sales-2.jpg" data-label="Popcorn Sales">
         <img src="images/gallery-popcorn-sales-2.jpg" alt="Scouts at a popcorn fundraiser table" loading="lazy">
         <span class="fg-label-hover">Popcorn Sales</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-popcorn-sheriff.jpg" data-label="Popcorn Sales">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-popcorn-sheriff.jpg" data-label="Popcorn Sales">
         <img src="images/gallery-popcorn-sheriff.jpg" alt="Scouts with sheriff deputies during popcorn sales" loading="lazy">
         <span class="fg-label-hover">Popcorn Sales</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-popcorn-solo.jpg" data-label="Popcorn Sales">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-popcorn-solo.jpg" data-label="Popcorn Sales">
         <img src="images/gallery-popcorn-solo.jpg" alt="Scout at a Pack 986 popcorn sales table" loading="lazy">
         <span class="fg-label-hover">Popcorn Sales</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-pack-meeting.jpg" data-label="Pack Meeting">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-pack-meeting.jpg" data-label="Pack Meeting">
         <img src="images/gallery-pack-meeting.jpg" alt="Pack 986 meeting in a school gymnasium" loading="lazy">
         <span class="fg-label-hover">Pack Meeting</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-pack-meeting-2.jpg" data-label="Pack Meeting">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-pack-meeting-2.jpg" data-label="Pack Meeting">
         <img src="images/gallery-pack-meeting-2.jpg" alt="Scouts seated on gym floor at a Pack 986 meeting" loading="lazy">
         <span class="fg-label-hover">Pack Meeting</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-archery.jpg" data-label="Archery">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-archery.jpg" data-label="Archery">
         <img src="images/gallery-archery.jpg" alt="Scout shooting a bow and arrow at archery targets" loading="lazy">
         <span class="fg-label-hover">Archery</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-color-guard.jpg" data-label="Color Guard">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-color-guard.jpg" data-label="Color Guard">
         <img src="images/gallery-color-guard.jpg" alt="Pack 986 color guard carrying flags at a pack meeting" loading="lazy">
         <span class="fg-label-hover">Color Guard</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-fishing-dock.jpg" data-label="Fishing at Camp">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-fishing-dock.jpg" data-label="Fishing at Camp">
         <img src="images/gallery-fishing-dock.jpg" alt="Scouts fishing off a dock at a sunny campsite lake" loading="lazy">
         <span class="fg-label-hover">Fishing at Camp</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-camp-bbq.jpg" data-label="Camp BBQ">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-camp-bbq.jpg" data-label="Camp BBQ">
         <img src="images/gallery-camp-bbq.jpg" alt="Pack 986 families grilling at a summer campout" loading="lazy">
         <span class="fg-label-hover">Camp BBQ</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-camp-cooking.jpg" data-label="Cooking at Camp">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-camp-cooking.jpg" data-label="Cooking at Camp">
         <img src="images/gallery-camp-cooking.jpg" alt="Scouts and parents preparing a meal at a campout" loading="lazy">
         <span class="fg-label-hover">Cooking at Camp</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-camp-dishes.jpg" data-label="Camp Chores">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-camp-dishes.jpg" data-label="Camp Chores">
         <img src="images/gallery-camp-dishes.jpg" alt="Scouts doing dishes together at a campsite" loading="lazy">
         <span class="fg-label-hover">Camp Chores</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-camp-crafts.jpg" data-label="Crafts at Camp">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-camp-crafts.jpg" data-label="Crafts at Camp">
         <img src="images/gallery-camp-crafts.jpg" alt="Scouts painting and doing crafts at an outdoor picnic table" loading="lazy">
         <span class="fg-label-hover">Crafts at Camp</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-campfire-circle.jpg" data-label="Campfire Night">
+      <button class="fg-item reveal" data-cat="camping" data-src="images/gallery-campfire-circle.jpg" data-label="Campfire Night">
         <img src="images/gallery-campfire-circle.jpg" alt="Pack 986 families gathered around a large campfire at dusk" loading="lazy">
         <span class="fg-label-hover">Campfire Night</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-fire-station-night.jpg" data-label="Fire Station Visit">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-fire-station-night.jpg" data-label="Fire Station Visit">
         <img src="images/gallery-fire-station-night.jpg" alt="Scouts getting a night tour of the fire station and fire truck" loading="lazy">
         <span class="fg-label-hover">Fire Station Visit</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-fire-station-flag.jpg" data-label="Thank You, Heroes!">
+      <button class="fg-item reveal" data-cat="service" data-src="images/gallery-fire-station-flag.jpg" data-label="Thank You, Heroes!">
         <img src="images/gallery-fire-station-flag.jpg" alt="Firefighter teaching scouts to fold a flag during popcorn delivery" loading="lazy">
         <span class="fg-label-hover">Thank You, Heroes!</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-den-activity.jpg" data-label="Den Activity">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-den-activity.jpg" data-label="Den Activity">
         <img src="images/gallery-den-activity.jpg" alt="Scouts working on a craft project together in the classroom" loading="lazy">
         <span class="fg-label-hover">Den Activity</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-holiday-meeting.jpg" data-label="Holiday Pack Meeting">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-holiday-meeting.jpg" data-label="Holiday Pack Meeting">
         <img src="images/gallery-holiday-meeting.jpg" alt="Pack 986 holiday pack meeting with scouts in a gym circle" loading="lazy">
         <span class="fg-label-hover">Holiday Pack Meeting</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-white-elephant.jpg" data-label="White Elephant Exchange">
+      <button class="fg-item reveal" data-cat="pack-life" data-src="images/gallery-white-elephant.jpg" data-label="White Elephant Exchange">
         <img src="images/gallery-white-elephant.jpg" alt="Scouts holding gifts from the Pack 986 White Elephant exchange" loading="lazy">
         <span class="fg-label-hover">White Elephant Exchange</span>
       </button>
-      <button class="fg-item reveal" data-src="images/gallery-derby-track.jpg" data-label="Pinewood Derby">
+      <button class="fg-item reveal" data-cat="derby" data-src="images/gallery-derby-track.jpg" data-label="Pinewood Derby">
         <img src="images/gallery-derby-track.jpg" alt="Scouts watching Pinewood Derby cars race down the track" loading="lazy">
         <span class="fg-label-hover">Pinewood Derby</span>
       </button>
@@ -1585,6 +1638,19 @@
     });
   });
 
+  // Category filter
+  const fgFilters = document.querySelectorAll('.fg-filter');
+  fgFilters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      fgFilters.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const cat = btn.dataset.filter;
+      document.querySelectorAll('.fg-item').forEach((item) => {
+        item.classList.toggle('is-hidden', cat !== 'all' && item.dataset.cat !== cat);
+      });
+    });
+  });
+
   // Lightbox
   const lightbox = document.getElementById('lightbox');
   const lbImg = lightbox.querySelector('.lb-img');
@@ -1608,8 +1674,15 @@
     lbImg.src = '';
   }
 
+  // Navigate only through visible (non-hidden) items
   function navigate(dir) {
-    currentIdx = (currentIdx + dir + fgItems.length) % fgItems.length;
+    let next = currentIdx;
+    let steps = 0;
+    do {
+      next = (next + dir + fgItems.length) % fgItems.length;
+      steps++;
+    } while (fgItems[next].classList.contains('is-hidden') && steps < fgItems.length);
+    currentIdx = next;
     lbImg.src = fgItems[currentIdx].dataset.src;
     lbCaption.textContent = fgItems[currentIdx].dataset.label;
   }
