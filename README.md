@@ -32,17 +32,19 @@ This repo is hosted via **GitHub Pages** under the Pack986 GitHub Organization.
 
 Photos live in the `images/` folder. To swap one out, replace the file and update the `src` in the matching `<img>` tag in the gallery section of `index.html`. Keep images under ~500KB — use [squoosh.app](https://squoosh.app) to compress if needed.
 
-Current gallery images:
+Current featured gallery images (7 tiles):
 
 | File | Tile |
 |---|---|
 | `images/river-rafting.jpg` | Wide — Annual River Rafting |
 | `images/popcorn-sales.jpg` | Popcorn Sales |
-| `images/service-project.jpg` | Dublin Creek Cleanup |
+| `images/service-project.jpg` | Community Service |
 | `images/snow-day.jpg` | Tall — Snow Day |
 | `images/pinewood-derby.jpg` | Pinewood Derby |
 | `images/parade.jpg` | St. Patrick's Day Parade |
 | `images/uss-hornet.jpg` | USS Hornet Overnight |
+
+Full photo grid images (33 tiles in `images/gallery-*.jpg`)
 
 ---
 

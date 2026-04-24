@@ -459,11 +459,7 @@
     aspect-ratio: 1;
     border-radius: var(--radius);
     overflow: hidden;
-    display: grid;
-    place-items: center;
     color: var(--cream);
-    text-align: center;
-    padding: 18px;
     transition: transform 0.3s;
   }
   .photo-tile:hover { transform: scale(1.02); }
@@ -477,18 +473,18 @@
   .photo-tile.wide { grid-column: span 2; aspect-ratio: 2 / 1; }
   .photo-tile.tall { aspect-ratio: 1 / 1.3; }
   .photo-tile .ph-label {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 2;
-    padding: 10px 16px;
-    background: rgba(23, 34, 74, 0.72);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 999px;
+    padding: 32px 14px 12px;
+    background: linear-gradient(transparent, rgba(15, 23, 51, 0.88));
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 600;
-    border: 1px solid rgba(245, 184, 46, 0.4);
+    text-align: left;
   }
   .photo-tile::before {
     content: "";
@@ -1268,6 +1264,66 @@
       <button class="fg-item reveal" data-src="images/gallery-pack-meeting.jpg" data-label="Pack Meeting">
         <img src="images/gallery-pack-meeting.jpg" alt="Pack 986 meeting in a school gymnasium" loading="lazy">
         <span class="fg-label-hover">Pack Meeting</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-pack-meeting-2.jpg" data-label="Pack Meeting">
+        <img src="images/gallery-pack-meeting-2.jpg" alt="Scouts seated on gym floor at a Pack 986 meeting" loading="lazy">
+        <span class="fg-label-hover">Pack Meeting</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-archery.jpg" data-label="Archery">
+        <img src="images/gallery-archery.jpg" alt="Scout shooting a bow and arrow at archery targets" loading="lazy">
+        <span class="fg-label-hover">Archery</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-color-guard.jpg" data-label="Color Guard">
+        <img src="images/gallery-color-guard.jpg" alt="Pack 986 color guard carrying flags at a pack meeting" loading="lazy">
+        <span class="fg-label-hover">Color Guard</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-fishing-dock.jpg" data-label="Fishing at Camp">
+        <img src="images/gallery-fishing-dock.jpg" alt="Scouts fishing off a dock at a sunny campsite lake" loading="lazy">
+        <span class="fg-label-hover">Fishing at Camp</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-camp-bbq.jpg" data-label="Camp BBQ">
+        <img src="images/gallery-camp-bbq.jpg" alt="Pack 986 families grilling at a summer campout" loading="lazy">
+        <span class="fg-label-hover">Camp BBQ</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-camp-cooking.jpg" data-label="Cooking at Camp">
+        <img src="images/gallery-camp-cooking.jpg" alt="Scouts and parents preparing a meal at a campout" loading="lazy">
+        <span class="fg-label-hover">Cooking at Camp</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-camp-dishes.jpg" data-label="Camp Chores">
+        <img src="images/gallery-camp-dishes.jpg" alt="Scouts doing dishes together at a campsite" loading="lazy">
+        <span class="fg-label-hover">Camp Chores</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-camp-crafts.jpg" data-label="Crafts at Camp">
+        <img src="images/gallery-camp-crafts.jpg" alt="Scouts painting and doing crafts at an outdoor picnic table" loading="lazy">
+        <span class="fg-label-hover">Crafts at Camp</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-campfire-circle.jpg" data-label="Campfire Night">
+        <img src="images/gallery-campfire-circle.jpg" alt="Pack 986 families gathered around a large campfire at dusk" loading="lazy">
+        <span class="fg-label-hover">Campfire Night</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-fire-station-night.jpg" data-label="Fire Station Visit">
+        <img src="images/gallery-fire-station-night.jpg" alt="Scouts getting a night tour of the fire station and fire truck" loading="lazy">
+        <span class="fg-label-hover">Fire Station Visit</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-fire-station-flag.jpg" data-label="Thank You, Heroes!">
+        <img src="images/gallery-fire-station-flag.jpg" alt="Firefighter teaching scouts to fold a flag during popcorn delivery" loading="lazy">
+        <span class="fg-label-hover">Thank You, Heroes!</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-den-activity.jpg" data-label="Den Activity">
+        <img src="images/gallery-den-activity.jpg" alt="Scouts working on a craft project together in the classroom" loading="lazy">
+        <span class="fg-label-hover">Den Activity</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-holiday-meeting.jpg" data-label="Holiday Pack Meeting">
+        <img src="images/gallery-holiday-meeting.jpg" alt="Pack 986 holiday pack meeting with scouts in a gym circle" loading="lazy">
+        <span class="fg-label-hover">Holiday Pack Meeting</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-white-elephant.jpg" data-label="White Elephant Exchange">
+        <img src="images/gallery-white-elephant.jpg" alt="Scouts holding gifts from the Pack 986 White Elephant exchange" loading="lazy">
+        <span class="fg-label-hover">White Elephant Exchange</span>
+      </button>
+      <button class="fg-item reveal" data-src="images/gallery-derby-track.jpg" data-label="Pinewood Derby">
+        <img src="images/gallery-derby-track.jpg" alt="Scouts watching Pinewood Derby cars race down the track" loading="lazy">
+        <span class="fg-label-hover">Pinewood Derby</span>
       </button>
     </div>
   </div>
