@@ -467,6 +467,7 @@
     transition: transform 0.3s;
   }
   .photo-tile:hover { transform: scale(1.02); }
+  img.photo-tile { object-fit: cover; width: 100%; height: 100%; }
   .photo-tile.wide { grid-column: span 2; aspect-ratio: 2 / 1; }
   .photo-tile.tall { aspect-ratio: 1 / 1.3; }
   .photo-tile .ph-label {
@@ -492,20 +493,6 @@
       linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
   }
-  .ph-1 { background: linear-gradient(135deg, #2d5a3d 0%, #17224a 100%); }
-  .ph-2 { background: linear-gradient(135deg, #c0392b 0%, #17224a 100%); }
-  .ph-3 { background: linear-gradient(135deg, #17224a 0%, #d89a0f 100%); }
-  .ph-4 { background: linear-gradient(135deg, #1e6091 0%, #2d5a3d 100%); }
-  .ph-5 { background: linear-gradient(135deg, #17224a 0%, #c0392b 100%); }
-
-  .photo-tile svg.ph-icon {
-    position: absolute;
-    width: 46%; height: 46%;
-    top: 27%; left: 27%;
-    opacity: 0.5;
-    color: rgba(245, 184, 46, 0.8);
-  }
-
   .gallery-note {
     margin-top: 24px;
     padding: 16px 20px;
@@ -1047,38 +1034,14 @@
     <p class="section-lede">From campfires to pinewood derbies to community service, here's a glimpse of the experiences your scout will be a part of.</p>
 
     <div class="gallery">
-      <div class="photo-tile ph-1 wide reveal">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18L12 4zM12 4v16M8 13l4-9 4 9"/></svg>
-        <span class="ph-label">Campouts &amp; Hikes</span>
-      </div>
-      <div class="photo-tile ph-2 reveal">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <span class="ph-label">Day Trips</span>
-      </div>
-      <div class="photo-tile ph-3 reveal">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="ph-label">Service Projects</span>
-      </div>
-      <div class="photo-tile ph-4 tall reveal">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 4V2m-4 2V2M4 12h16M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
-        <span class="ph-label">Pack Meetings</span>
-      </div>
-      <div class="photo-tile ph-5 reveal">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
-        <span class="ph-label">Pinewood Derby</span>
-      </div>
-      <div class="photo-tile ph-1 reveal">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3-1.9 5.8L4 10.1l4.6 3.8L7 20l5-3.5 5 3.5-1.6-6.1L20 10.1l-6.1-1.3z"/></svg>
-        <span class="ph-label">Awards &amp; Recognition</span>
-      </div>
+      <img src="images/river-rafting.jpg" alt="Pack 986 families river rafting together" class="photo-tile wide reveal">
+      <img src="images/popcorn-sales.jpg" alt="Scouts selling popcorn at a Pack 986 fundraiser" class="photo-tile reveal">
+      <img src="images/service-project.jpg" alt="Pack 986 at the Dublin Creek Cleanup community service event" class="photo-tile reveal">
+      <img src="images/snow-day.jpg" alt="Scouts tubing on the annual Pack 986 Snow Day" class="photo-tile tall reveal">
+      <img src="images/pinewood-derby.jpg" alt="Crowd watching cars race at the Pack 986 Pinewood Derby" class="photo-tile reveal">
+      <img src="images/parade.jpg" alt="Pack 986 marching in the St. Patrick's Day Parade" class="photo-tile reveal">
     </div>
 
-    <!-- PLACEHOLDER NOTE: Remove this block once real photos are added.
-         Replace each <div class="photo-tile ..."> with an <img> tag.
-         See README for full instructions. -->
-    <div class="gallery-note">
-      More photos coming soon, check back as the year gets underway!
-    </div>
   </div>
 </section>
 
