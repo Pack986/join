@@ -6,71 +6,53 @@ Recruitment landing page for Cub Scout Pack 986. Single-file HTML/CSS/JS — no 
 
 ---
 
-## How it's deployed
+## Deployment
 
-This repo lives under the **Pack986 GitHub Organization** and is served via **GitHub Pages**.
+This repo is hosted via **GitHub Pages** under the Pack986 GitHub Organization.
 
 - Source: `main` branch, `/ (root)` folder
-- Any `git push` to `main` automatically updates the live site within ~60 seconds
-- No manual deploy step needed
-
-To verify or change the Pages configuration: **GitHub → Pack986/join → Settings → Pages**
+- Pushing to `main` automatically updates the live site within ~60 seconds
 
 ---
 
-## Managing the site
+## Making changes
 
-### Making a change
-
-1. Edit `index.html` directly (everything — HTML, CSS, JS — is in one file)
-2. Commit and push to `main`:
+1. Edit `index.html` (everything — HTML, CSS, JS — is in one file)
+2. Commit and push:
    ```
    git add index.html
-   git commit -m "your change description"
+   git commit -m "describe your change"
    git push
    ```
-3. GitHub Pages will rebuild automatically. Check the live URL in ~1 minute.
+3. Live in ~1 minute.
 
-### Things you'll want to update before launch
+---
 
-| What | Where in `index.html` | Notes |
-|---|---|---|
-| Contact email | Search `pack986@example.com` | One occurrence, in the Join section |
-| Committee chair names | Search `James` and `Shashi` | Footer + Join section copy |
-| Hero stats | `<div class="hero-stats">` block | "12+ Events / Year", etc. |
-| Photo tiles | `<div class="gallery">` section | See instructions below |
+## Updating photos
 
-### Swapping in real photos
+Photos live in the `images/` folder. To swap one out, replace the file and update the `src` in the matching `<img>` tag in the gallery section of `index.html`. Keep images under ~500KB — use [squoosh.app](https://squoosh.app) to compress if needed.
 
-The gallery currently shows placeholder tiles with gradient backgrounds. To replace with real photos:
+Current gallery images:
 
-Find each `<div class="photo-tile ...">` block in the gallery section and replace it with an `<img>` tag:
-
-```html
-<!-- Before (placeholder) -->
-<div class="photo-tile ph-1 wide reveal">
-  <svg class="ph-icon" ...></svg>
-  <span class="ph-label">Campouts &amp; Hikes</span>
-</div>
-
-<!-- After (real photo) -->
-<img src="images/campout.jpg" alt="Scouts on a campout" class="photo-tile wide reveal">
-```
-
-Keep the layout class names (`wide`, `tall`, `reveal`) on the `<img>` — they control the grid.
-
-Add your photos to an `images/` folder in the repo. Keep files under ~500KB each for fast mobile loading — [squoosh.app](https://squoosh.app) is a free compressor.
+| File | Tile |
+|---|---|
+| `images/river-rafting.jpg` | Wide — Annual River Rafting |
+| `images/popcorn-sales.jpg` | Popcorn Sales |
+| `images/service-project.jpg` | Dublin Creek Cleanup |
+| `images/snow-day.jpg` | Tall — Snow Day |
+| `images/pinewood-derby.jpg` | Pinewood Derby |
+| `images/parade.jpg` | St. Patrick's Day Parade |
 
 ---
 
 ## Custom domain (optional)
 
-To use a domain like `pack986.org` or `joinpack986.com` instead of the `github.io` URL:
+To use a domain like `pack986.org` instead of the `github.io` URL:
 
 1. Buy a domain (~$10–15/yr via Porkbun, Namecheap, or Cloudflare Registrar)
 2. In **Settings → Pages → Custom domain**, enter your domain
-3. At your registrar, add the DNS records GitHub instructs you to add (usually 4 A records + 1 CNAME)
-4. Check "Enforce HTTPS" once the domain verifies (takes up to 24 hrs for DNS to propagate)
+3. Add the DNS records GitHub provides at your registrar (usually 4 A records + 1 CNAME)
+4. Enable "Enforce HTTPS" once the domain verifies (~24 hrs for DNS)
 
 ---
 
@@ -79,22 +61,16 @@ To use a domain like `pack986.org` or `joinpack986.com` instead of the `github.i
 ```
 .
 ├── README.md       ← you are here
-├── index.html      ← the entire site (HTML + CSS + JS, one file)
-└── images/         ← add this folder when you have real photos
-    ├── campout.jpg
-    └── ...
+├── index.html      ← the entire site
+└── images/
+    ├── river-rafting.jpg
+    ├── popcorn-sales.jpg
+    ├── service-project.jpg
+    ├── snow-day.jpg
+    ├── pinewood-derby.jpg
+    └── parade.jpg
 ```
 
 ---
 
-## Tech notes
-
-- No npm, no framework, no build step — just HTML
-- Google Fonts (Alfa Slab One, Fraunces, Work Sans) loaded via CDN
-- Mobile-first responsive, tested from 320px up
-- Scroll-triggered reveal animations via `IntersectionObserver`
-- Hero badge SVG animates via CSS `@keyframes`
-
----
-
-Questions? Contact James or Shashi, Pack 986 Committee Chairs.
+Questions? Contact the Pack 986 Membership team at joinpack986@gmail.com
